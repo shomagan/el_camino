@@ -1,0 +1,60 @@
+
+get_routes_number()
+->send json 
+{command : "get_routes_number"}
+->responde json
+{command : "get_routes_number" , 
+ error : 0,
+ routes_number : number::int}
+
+get_route_description()
+->send json 
+{command : "get_route_description",
+ number : int,
+}
+->responde json
+{ command : "get_route_description" , 
+  error : 0,
+  uniq_name : string128 ,
+  gps_coordinate_of_start : [x,y] ,
+  points_number : int ,
+  lentgh_km : float ,
+  description : string256 ,
+}
+
+get_route_full()
+->send json 
+{command : "get_route_full",
+ number : int,
+}
+
+->responde json
+{ command : "get_route_full" , 
+  error : 0,
+  uniq_name : string128 ,
+  gps_coordinate_of_start : [x,y] ,
+  points_number : int ,
+  lentgh_km : float ,
+  points_ids : [points_number * array_of_string64,points_number * x,
+                points_number * y]
+}
+
+send_user_id()
+->send json 
+{command : "send_user_id",
+ email : "email",
+ user_id : int}
+->responde json
+{command : "send_user_id",
+ error : 0,//if id is match 
+ routes_number : number::int}
+
+
+error type 
+{ USER_ID_NOT_FOUND : 0x01,
+  USER_ID_AND_EMAIL_MISMATCH : 0x02,
+  COMMAND_MISMATCH : 0x03,
+  ROUTE_MISMATCH : 0x04,
+  DATA_STRUCT_MISMATCH : 0x05,
+  SERVER_UNAVAILABLE : 0x06,
+}

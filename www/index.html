@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no,
+    shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <title>BLE Scan</title>
+  <script>
+  // Redirect console.log to Evothings Workbench.
+  if (window.hyper && window.hyper.log) { console.log = hyper.log }
+  </script>
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="libs/mdl/material.css">
+  <link rel="stylesheet" href="libs/mdl/icons/material-icons.css">
+</head>
+
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <!-- Header -->
+  <header class="mdl-layout__header">
+    <button class="app-back mdl-layout-icon mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">arrow_back</i>
+    </button>
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">BLE Scan</span>
+      <div class="mdl-layout-spacer"></div>
+      <!-- Back button -->
+      <nav class="mdl-navigation">
+        <a class="app-back mdl-navigation__link" href="javascript:void(0)">Back</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Side menu -->
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Menu</span>
+    <nav class="mdl-navigation">
+      <a class="app-start-scan mdl-navigation__link" href="javascript:void(0)"><i class="material-icons">location_searching</i> Start Scan</a>
+      <a class="app-stop-scan mdl-navigation__link" href="javascript:void(0)"><i class="material-icons">highlight_off</i>  Stop Scan</a>
+      <a class="app-clear-scan mdl-navigation__link" href="javascript:void(0)"><i class="material-icons">highlight_off</i>  Clear</a>
+      <a class="app-get-route-description mdl-navigation__link" href="javascript:void(0)"><i class="material-icons">highlight_off</i> route</a>
+    </nav>
+  </div>
+  <!-- Main -->
+  <main class="mdl-layout__content">
+    <!-- page-start -->
+    <section>
+      <div class="page-content">
+        <!-- Raised button with ripple      https://material.google.com/style/color.html#color-color-palette    -->
+        <div class="app-buttons">
+          <button class="app-start-scan mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--disabled">
+              START SCAN
+          </button>
+          <button class="app-stop-scan mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--disabled">
+            STOP SCAN
+          </button>
+          <button class="app-clear-scan mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--disabled">
+            CLEAR 
+          </button>
+          <button class="app-get-route-description mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-button--disabled">
+            route 
+          </button>
+
+
+        </div>
+        <div class="mdl-progress mdl-js-progress"></div>
+        <div class="app-info"></div>
+        <!-- Found devices are inserted into this div -->
+        <div class="app-cards"></div>
+      </div>
+      <!-- End page-content -->
+    </section>
+  </main>
+  <!-- Toast element used for messages -->
+  <div class="mdl-snackbar mdl-js-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>
+
+</div>
+
+<script src="cordova.js"></script>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="libs/evothings/ui/fastclick.js"></script>
+<script src="libs/mdl/material.js"></script>
+<script src="app.js"></script>
+</body>
+
+</html>
